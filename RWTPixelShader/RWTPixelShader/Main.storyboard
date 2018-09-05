@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f3e-6J-Ivu">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--GLKit View Controller-->
+        <scene sceneID="By9-ee-agf">
+            <objects>
+                <glkViewController autoresizesArchivedViewToFullSize="NO" preferredFramesPerSecond="30" id="f3e-6J-Ivu" customClass="RWTViewController" sceneMemberID="viewController">
+                    <glkView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="8Jt-vf-RNl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bSx-ns-wKQ">
+                                <rect key="frame" x="16" y="45" width="345" height="31"/>
+                                <connections>
+                                    <action selector="redChange:" destination="f3e-6J-Ivu" eventType="valueChanged" id="Y3p-mm-FRU"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Syd-xU-XC7">
+                                <rect key="frame" x="16" y="100" width="345" height="31"/>
+                                <connections>
+                                    <action selector="greenChange:" destination="f3e-6J-Ivu" eventType="valueChanged" id="OJ2-tK-AA7"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fFr-of-3OE">
+                                <rect key="frame" x="16" y="155" width="345" height="31"/>
+                                <connections>
+                                    <action selector="blueChange:" destination="f3e-6J-Ivu" eventType="valueChanged" id="1FA-2H-x7m"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrS-FC-wvn">
+                                <rect key="frame" x="41.5" y="210" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTU-jt-ud8">
+                                <rect key="frame" x="166.5" y="210" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tb-QU-xyW">
+                                <rect key="frame" x="291.5" y="210" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khT-vV-qTv">
+                                <rect key="frame" x="78" y="256" width="220" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="Generate Random Index"/>
+                                <connections>
+                                    <action selector="generateRandomIndex:" destination="f3e-6J-Ivu" eventType="touchUpInside" id="ZDJ-cQ-BuD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="fFr-of-3OE" firstAttribute="leading" secondItem="qnY-lv-lrh" secondAttribute="leading" constant="18" id="04Z-fa-QBP"/>
+                            <constraint firstItem="qnY-lv-lrh" firstAttribute="trailing" secondItem="fFr-of-3OE" secondAttribute="trailing" constant="16" id="1G7-ZT-Rwp"/>
+                            <constraint firstItem="Syd-xU-XC7" firstAttribute="top" secondItem="bSx-ns-wKQ" secondAttribute="bottom" constant="25" id="1tq-0w-1Xg"/>
+                            <constraint firstItem="WTU-jt-ud8" firstAttribute="centerX" secondItem="qnY-lv-lrh" secondAttribute="centerX" id="5nR-1u-m8A"/>
+                            <constraint firstItem="bSx-ns-wKQ" firstAttribute="top" secondItem="qnY-lv-lrh" secondAttribute="top" constant="25" id="D2l-uF-1qf"/>
+                            <constraint firstItem="yrS-FC-wvn" firstAttribute="centerX" secondItem="qnY-lv-lrh" secondAttribute="centerX" multiplier="0.333" id="Et4-Yc-Tqj"/>
+                            <constraint firstItem="bSx-ns-wKQ" firstAttribute="leading" secondItem="qnY-lv-lrh" secondAttribute="leading" constant="18" id="HkM-RF-Bdf"/>
+                            <constraint firstItem="qnY-lv-lrh" firstAttribute="trailing" secondItem="bSx-ns-wKQ" secondAttribute="trailing" constant="16" id="KKH-Cp-Tom"/>
+                            <constraint firstItem="3tb-QU-xyW" firstAttribute="centerX" secondItem="qnY-lv-lrh" secondAttribute="centerX" multiplier="1.6666" id="UVQ-M0-o7D"/>
+                            <constraint firstItem="3tb-QU-xyW" firstAttribute="top" secondItem="fFr-of-3OE" secondAttribute="bottom" constant="25" id="XiY-8q-oTa"/>
+                            <constraint firstItem="qnY-lv-lrh" firstAttribute="trailing" secondItem="Syd-xU-XC7" secondAttribute="trailing" constant="16" id="Zgw-sR-LF6"/>
+                            <constraint firstItem="Syd-xU-XC7" firstAttribute="leading" secondItem="qnY-lv-lrh" secondAttribute="leading" constant="18" id="mdZ-61-8Wt"/>
+                            <constraint firstItem="khT-vV-qTv" firstAttribute="top" secondItem="WTU-jt-ud8" secondAttribute="bottom" constant="25" id="mqe-4z-bgE"/>
+                            <constraint firstItem="WTU-jt-ud8" firstAttribute="top" secondItem="fFr-of-3OE" secondAttribute="bottom" constant="25" id="r7c-Ub-PcU"/>
+                            <constraint firstItem="fFr-of-3OE" firstAttribute="top" secondItem="Syd-xU-XC7" secondAttribute="bottom" constant="25" id="rk8-Wu-OY3"/>
+                            <constraint firstItem="khT-vV-qTv" firstAttribute="centerX" secondItem="qnY-lv-lrh" secondAttribute="centerX" id="vHU-le-R3m"/>
+                            <constraint firstItem="yrS-FC-wvn" firstAttribute="top" secondItem="fFr-of-3OE" secondAttribute="bottom" constant="25" id="yxX-Oc-Evr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qnY-lv-lrh"/>
+                        <connections>
+                            <outlet property="delegate" destination="f3e-6J-Ivu" id="O9g-hU-Z6k"/>
+                        </connections>
+                    </glkView>
+                    <connections>
+                        <outlet property="index1" destination="yrS-FC-wvn" id="utb-zc-inL"/>
+                        <outlet property="index2" destination="WTU-jt-ud8" id="6Bd-wq-fU6"/>
+                        <outlet property="index3" destination="3tb-QU-xyW" id="0Mx-4G-Z6c"/>
+                    </connections>
+                </glkViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cSz-M7-QPK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="109.5" y="18.5"/>
+        </scene>
+    </scenes>
+</document>
