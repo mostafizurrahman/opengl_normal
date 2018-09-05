@@ -9,7 +9,9 @@
 #import "RWTViewController.h"
 #import "RWTBaseShader.h"
 
-@interface RWTViewController ()
+@interface RWTViewController ()<GLCaptureIcon>{
+    int count;
+}
 
 // Shader
 @property (strong, nonatomic, readwrite) RWTBaseShader* shader;
@@ -34,6 +36,7 @@
   
   // Initialize shader
   self.shader = [[RWTBaseShader alloc] initWithVertexShader:@"RWTBase" fragmentShader:@"RWTGradient"];
+    self.shader.captureDelegate = self;
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
@@ -68,6 +71,56 @@
     index = (int)arc4random_uniform(3);
     self.index3.text = [NSString stringWithFormat:@"%d",index];
     self.shader.index3 = index;
+}
+
+- (IBAction)generateImage:(id)sender {
+    self.shader.captureImage = YES;
+}
+
+-(void)captureImage:(UIImage *)imageIcon{
+    NSString *rootPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
+    NSString *documentPath = [rootPath stringByAppendingPathComponent:@"brush_gradient.json"];
+    NSString *imageName = [self getImageName];
+    NSString *imagePath = [rootPath stringByAppendingPathComponent:imageName];
+    NSData *imageData = UIImageJPEGRepresentation(imageIcon, 0.99);
+    if([imageData writeToFile:imagePath atomically:YES])NSLog(@"image icon saved success!!!##@@@");
+    if(![[NSFileManager defaultManager] fileExistsAtPath:documentPath]){
+        if([[NSFileManager defaultManager] createFileAtPath:documentPath contents:nil attributes:nil]){
+            NSLog(@"JSON FILE CREATED");
+        }
+    }
+    NSError *error;
+    NSString *oldString = [[NSString alloc] initWithContentsOfFile:documentPath encoding:NSUTF8StringEncoding error:&error];
+    if(oldString.length == 0){
+        oldString = @"{\"gradien_brush_json\" : [";
+    } else{
+        oldString = [[oldString stringByReplacingOccurrencesOfString:@"]}" withString:@""] stringByAppendingString:@","];
+    }
+    
+    NSMutableString *newJson = [NSMutableString stringWithFormat:@"{\"brush_id\" : \"brush_%d\",",count++];
+    [newJson appendString:[NSString stringWithFormat:@"\"index1\" : \"%d\",",self.shader.index1]];
+    [newJson appendString:[NSString stringWithFormat:@"\"index2\" : \"%d\",",self.shader.index2]];
+    [newJson appendString:[NSString stringWithFormat:@"\"index3\" : \"%d\",",self.shader.index3]];
+    [newJson appendString:[NSString stringWithFormat:@"\"r\" : \"%0.3f\",",self.shader.r]];
+   [newJson appendString:[NSString stringWithFormat:@"\"g\" : \"%0.3f\",",self.shader.g]];
+    [newJson appendString:[NSString stringWithFormat:@"\"b\" : \"%0.3f\",",self.shader.b]];
+    [newJson appendString:[NSString stringWithFormat:@"\"shader_type\" : \"%d\",",0]];
+    [newJson appendString:[NSString stringWithFormat:@"\"brush_icon\" : \"%@\"}]}",imageName]];
+    oldString = [NSString stringWithFormat:@"%@%@",oldString,newJson];
+    NSLog(@"\n\n %@ \n\n",oldString);
+    NSData *jsonData = [NSData dataWithBytes:[oldString UTF8String] length:oldString.length];
+    if([jsonData writeToFile:documentPath atomically:YES]){
+        NSLog(@"json write SUCCESS");
+    }
+}
+
+-(NSString *)getImageName {
+    NSMutableString *string = [[NSMutableString alloc] init];
+    [string appendFormat:@"0_"];
+    [string appendFormat:@"%@", [NSString stringWithFormat:@"%d_%d_%d_%0.3f_%0.3f_%0.3f.jpg",self.shader.index1,
+                          self.shader.index2,self.shader.index3,self.shader.r,self.shader.g,self.shader.b]];
+    return string;
+    
 }
 
 @end

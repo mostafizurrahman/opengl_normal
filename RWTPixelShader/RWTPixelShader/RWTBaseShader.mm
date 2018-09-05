@@ -118,10 +118,11 @@ static GLfloat const RWTBaseShaderQuad[8] = {
                                         bitsPerPixel, bytesPerRow, colorSpaceRef,
                                         bitmapInfo, provider, NULL, NO, renderingIntent);
     UIImage *myImage = [UIImage imageWithCGImage:imageRef];
-    [self.captureDelegate captureImage:myImage];
+    
     CGImageRelease(imageRef);
     CGDataProviderRelease(provider);
     CGColorSpaceRelease(colorSpaceRef);
+    [self.captureDelegate captureImage:myImage];
 }
 
 #pragma mark - Private

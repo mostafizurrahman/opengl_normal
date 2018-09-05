@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f3e-6J-Ivu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f3e-6J-Ivu">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -63,16 +63,26 @@
                                     <action selector="generateRandomIndex:" destination="f3e-6J-Ivu" eventType="touchUpInside" id="ZDJ-cQ-BuD"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EhR-j7-SDd">
+                                <rect key="frame" x="126.5" y="318" width="123" height="33"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <state key="normal" title="GenerateImage"/>
+                                <connections>
+                                    <action selector="generateImage:" destination="f3e-6J-Ivu" eventType="touchUpInside" id="3MO-Ko-Oeu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="fFr-of-3OE" firstAttribute="leading" secondItem="qnY-lv-lrh" secondAttribute="leading" constant="18" id="04Z-fa-QBP"/>
                             <constraint firstItem="qnY-lv-lrh" firstAttribute="trailing" secondItem="fFr-of-3OE" secondAttribute="trailing" constant="16" id="1G7-ZT-Rwp"/>
                             <constraint firstItem="Syd-xU-XC7" firstAttribute="top" secondItem="bSx-ns-wKQ" secondAttribute="bottom" constant="25" id="1tq-0w-1Xg"/>
+                            <constraint firstItem="EhR-j7-SDd" firstAttribute="centerX" secondItem="qnY-lv-lrh" secondAttribute="centerX" id="4BV-h7-rAu"/>
                             <constraint firstItem="WTU-jt-ud8" firstAttribute="centerX" secondItem="qnY-lv-lrh" secondAttribute="centerX" id="5nR-1u-m8A"/>
                             <constraint firstItem="bSx-ns-wKQ" firstAttribute="top" secondItem="qnY-lv-lrh" secondAttribute="top" constant="25" id="D2l-uF-1qf"/>
                             <constraint firstItem="yrS-FC-wvn" firstAttribute="centerX" secondItem="qnY-lv-lrh" secondAttribute="centerX" multiplier="0.333" id="Et4-Yc-Tqj"/>
                             <constraint firstItem="bSx-ns-wKQ" firstAttribute="leading" secondItem="qnY-lv-lrh" secondAttribute="leading" constant="18" id="HkM-RF-Bdf"/>
                             <constraint firstItem="qnY-lv-lrh" firstAttribute="trailing" secondItem="bSx-ns-wKQ" secondAttribute="trailing" constant="16" id="KKH-Cp-Tom"/>
+                            <constraint firstItem="EhR-j7-SDd" firstAttribute="top" secondItem="khT-vV-qTv" secondAttribute="bottom" constant="26" id="KNp-AZ-TdJ"/>
                             <constraint firstItem="3tb-QU-xyW" firstAttribute="centerX" secondItem="qnY-lv-lrh" secondAttribute="centerX" multiplier="1.6666" id="UVQ-M0-o7D"/>
                             <constraint firstItem="3tb-QU-xyW" firstAttribute="top" secondItem="fFr-of-3OE" secondAttribute="bottom" constant="25" id="XiY-8q-oTa"/>
                             <constraint firstItem="qnY-lv-lrh" firstAttribute="trailing" secondItem="Syd-xU-XC7" secondAttribute="trailing" constant="16" id="Zgw-sR-LF6"/>
