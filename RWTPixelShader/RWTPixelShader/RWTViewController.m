@@ -44,7 +44,9 @@
   
   [self.shader renderInRect:rect atTime:self.timeSinceFirstResume];
 }
-
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view  endEditing:YES];
+}
 - (BOOL)prefersStatusBarHidden {
   return YES;
 }
@@ -76,7 +78,10 @@
 - (IBAction)generateImage:(id)sender {
     self.shader.captureImage = YES;
 }
-
+- (IBAction)shaderType:(UITextField *)sender {
+    int type = (int) sender.text.integerValue;
+    self.shader.shaderType = type;
+}
 -(void)captureImage:(UIImage *)imageIcon{
     NSString *rootPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
     NSString *documentPath = [rootPath stringByAppendingPathComponent:@"brush_gradient.json"];

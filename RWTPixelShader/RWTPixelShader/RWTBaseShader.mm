@@ -34,7 +34,7 @@ static GLfloat const RWTBaseShaderQuad[8] = {
 @property (assign, nonatomic, readonly) GLuint __index1;
 @property (assign, nonatomic, readonly) GLuint __index2;
 @property (assign, nonatomic, readonly) GLuint __index3;
-
+@property (assign, nonatomic, readonly) GLuint __shaderType;
 @property (assign, nonatomic, readonly) GLuint __r;
 @property (assign, nonatomic, readonly) GLuint __g;
 @property (assign, nonatomic, readonly) GLuint __b;
@@ -60,10 +60,11 @@ static GLfloat const RWTBaseShaderQuad[8] = {
       ___index1 = glGetUniformLocation(_program, "index1");
       ___index2 = glGetUniformLocation(_program, "index2");
       ___index3 = glGetUniformLocation(_program, "index3");
-      
+      ___shaderType = 0;
       ___r = glGetUniformLocation(_program, "r");
       ___g = glGetUniformLocation(_program, "g");
       ___b = glGetUniformLocation(_program, "b");
+      ___shaderType = glGetUniformLocation(_program, "ShaderType");
       self.index1 = 0;
       self.index2 = 1;
       self.index3 = 2;
@@ -87,7 +88,7 @@ static GLfloat const RWTBaseShaderQuad[8] = {
     glUniform1i(self.__index1, self.index1);
     glUniform1i(self.__index2, self.index2);
     glUniform1i(self.__index3, self.index3);
-    
+    glUniform1i(self.__shaderType, self.shaderType);
     glUniform1f(self.__r, self.r);
     glUniform1f(self.__g, self.g);
     glUniform1f(self.__b, self.b);

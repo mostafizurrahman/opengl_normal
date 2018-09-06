@@ -19,6 +19,6 @@
 @property (readwrite) int index1, index2, index3;
 
 @property (readwrite) CGFloat r, g, b;
-
+@property (readwrite) int shaderType;
 
 @end
